@@ -1,0 +1,189 @@
+## HTML notes
+
+
+
+
+## CSS notes
+    Selector
+        I. simple selector (Lec 13)
+            /* all h2 elements */
+            h2 {
+              color: red;
+              text-align: center;
+            }
+            
+            /* all with class="highlight" */
+            .highlight {
+              font-size: 20px;
+              font-weight: bold;
+            }
+            
+            /* element with id="mainPoint" */
+            #mainPoint {
+              font-style: italic;
+              background-color: red;
+              opacity: .7;
+            }
+            
+            /* all p AND h1 elements */
+            p, h1 {
+              color: blue;
+              text-align: center;
+            }
+
+        II. element with class selector (Lec 14)
+            /* all with class="highlight" */
+            .highlight {
+              background-color: green;
+            }
+            
+            /* all p elements with class="highlight" */
+            p.highlight {  
+              font-style: italic;
+            }
+            
+            /* all elements with class 'highlight' as well as with class 'mainpoint'. */
+            .mainpoint.highlight {
+              color: red;
+              background-color: black;
+            }
+
+        III. child selector (Lec 14)
+            /* any article element which is a direct child of a section element */
+            section > article {
+              color: green;
+              font-size: 24px;
+            }
+            
+            /* any h2 element which is a direct child of a section element */
+            section > h2 {
+              color: green;
+            }
+
+         IV. Descendant selector
+            /* all li elements that are inside a section element. */
+            section li {
+              color: green;
+            }
+
+
+        Lec 15: Pseudo class selectors
+            e.g.:
+            1. :link
+            2. :visited
+            3. :hover
+            4. :active
+            5. :nth:child()
+
+        Lec 16: Style Placement
+            In real world situation, always put styles in an external file, e.g., myStyles.css
+            and link to this file in (usually several html files) by <link rel="stylesheet" href="myStyles.css">
+
+            Don't use this in html other than testing purpose:
+            <!-- bad practice, not reusable -->
+            <p style="text-align: center;">I am centered!</p>
+
+        Lec 17: 
+            Cascade: origin, merge, Inheritance, Specificity
+            Provide precise control over targeting content while allowing maximum re-use of
+            styles across a website
+
+        Lec 18:
+            Styling text
+            1. Some examples of styling text:
+                .style {
+                  font-family: Arial, Helvetica, sans-serif;
+                  color: #0000ff;
+                  font-style: italic;
+                  font-weight: bold;
+                  font-size: 24px; /* points (pt) are used in print, not screen.*/
+                  text-transform: uppercase;
+                  text-align: right;
+                }
+            2. Font size: use body tag to specify global font size, use "em" or direct 
+               percentage number to specify relative font size
+                <style>
+                  body {
+                    font-size: 120%;
+                  }
+                </style>
+                ...
+                <div>Regular text</div>
+                <div style="font-size: 2em;">2em text   ---> two times 120% = 240%
+                  <div style="font-size: 2em;">4em text ---> 240*2 = 480%
+                    <div style="font-size: .5em;">2em again!</div>  ---> 480*0.5=240%
+                  </div>
+                </div>
+
+        Lec 19:
+            1. Box model: every element is a box in HTML
+                prefer  "box-sizing: border-box;"
+            2. Use * (universal) selector to select all elements:
+                * {
+                  box-sizing: border-box;
+                  margin: 0;
+                  padding: 0;
+                }
+                Often used to reset(overwrite) browser default settings
+            3. Horizontally cumulative margins and vertically collapsing margins
+            4. Content overflow:
+                "overflow: auto;"
+
+        Lec 20:
+            Background property
+            #bg {
+              background-color: blue;
+              background-image: url("yaakov.png"); /* relative path to image */
+              background-repeat: no-repeat;
+              background-position: top;
+            }
+            Or, we can put all properties into a single "background:"
+            #bg {
+              background: url('yaakov.png') no-repeat top center blue;
+            }
+
+        Lec 21:
+            1. Float: very useful and common way to produce flexible layouts
+            2. Floats are taken out of normal document flow. Use "clear" property
+            to resume normal document flow. e.g.
+                section {
+                  clear: right;
+                }
+                /* this says that none of the section elements should allow anything to 
+                float to the right of them */
+
+        Lec 22: Positioning
+            1. Three types of positioning:
+                i. Static (default for all elements except html)
+                ii. Relative
+                      Offsets the element relative to its normal document flow positoin.
+                      This doesn't take the element out of normal document flow.
+                iii. Absolute
+                      Relative to closest ancestor who has postitioning set to 
+                      non-static value. i.e., relative or absolute
+
+        Lec 23: Media Queries
+            1. Basic syntax: @media (media feature) logical op (media feature)
+                e.g.,
+                @media (min-width: 992px) and (max-width: 1199px) {
+                  #p1 {
+                    width: 50%;
+                  }
+                  #p2 {
+                    height: 400px;
+                  }
+                }
+            2. Usually, first provide base styling, and then add or change them in 
+                each media query.
+
+        Lec 24: Responsive Design
+            Use: <meta name="viewport" content="width=device-width, initial-scale=1">
+            to turn off default mobile zooming
+
+
+
+
+
+
+
+## JavaScript notes
